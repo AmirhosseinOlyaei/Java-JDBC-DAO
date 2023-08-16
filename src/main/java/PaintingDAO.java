@@ -28,10 +28,11 @@ public class PaintingDAO {
             e.printStackTrace();
         }
     }
-    public void insertPainting(){
+    public void insertPainting(String title){
         try{
             // insert something into table
-            PreparedStatement ps3 = conn.prepareStatement("insert into painting (title) values ('guernica')");
+            PreparedStatement ps3 = conn.prepareStatement("insert into painting (title) values (?)");
+            ps3.setString(1, title);
             ps3.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();

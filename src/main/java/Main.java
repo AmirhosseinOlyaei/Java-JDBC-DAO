@@ -5,7 +5,10 @@ public class Main {
         PaintingDAO paintingDAO = new PaintingDAO();
         paintingDAO.dropPaintingTable();
         paintingDAO.setUpPaintingTable();
-        paintingDAO.insertPainting();
+        paintingDAO.insertPainting("Guernica");
+        paintingDAO.insertPainting("Composition x");
+        paintingDAO.insertPainting("Gentle ascent");
+
         paintingDAO.getAllPaintingNames();
     }
 }
