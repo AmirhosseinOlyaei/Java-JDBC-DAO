@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PaintingDAO {
@@ -39,16 +40,19 @@ public class PaintingDAO {
         }
     }
     public List<String> getAllPaintingNames(){
+        List<String> paintings = new ArrayList<>();
         try{
             // query everything from the table and display the result
             PreparedStatement ps4 = conn.prepareStatement("select * from painting");
             ResultSet rs = ps4.executeQuery();
             while(rs.next()){
-                System.out.println(rs.getString("title"));
+                // System.out.println(rs.getString("title"));
+                // loop through every row in my result set, until it has no more items
+                paintings.add(rs.getString("title"));
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return null;
+        return paintings;
     }
 }
